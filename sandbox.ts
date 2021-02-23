@@ -1,43 +1,14 @@
-//Explicit type
-let char: string;
-let age: number;
-let isLoggedIn: boolean;
+//Any type
 
-//age = 'luigi'
-age = 34
+let age: any = 25;
 
-//Array
-let ninjas: String[];
+age = "Salut";
 
-//ninjas = [23, 'abcd']
-ninjas = ['Ken', 'Master']
+console.log(age);
 
-//Union Type
-let mixed: (string|number)[] = [];
+let mixed: any[] = [];
 
-//mixed.push(true)
-mixed.push('Peter')
-mixed.push(46)
+mixed.push({ name: 'luigi'})
+mixed.push(23)
 
-let uid: number|string;
-
-//uid = false;
-uid = '123'
-
-
-//Object
-let ninjaOne: object;
-
-ninjaOne = {name: 'abc', age: 22}
-ninjaOne = []
-
-let ninjaTwo: {uid: number|string, name: string, age: number, isDead: boolean};
-
-ninjaTwo = {
-    uid: "123",
-    name: 'Peter',
-    age: 99,
-    isDead: false
-}
-
-console.log(ninjaTwo);
+console.log(mixed);
