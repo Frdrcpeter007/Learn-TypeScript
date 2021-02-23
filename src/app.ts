@@ -1,6 +1,28 @@
-// let anchor = document.querySelector('a');
+//Classes
+class Invoice {
+    client: string;
+    details: string;
+    amount: number;
 
-// console.log(anchor?.href);
+    constructor(client: string, details: string, amount: number) {
+        this.client = client;
+        this.details = details;
+        this.amount = amount;
+    }
+
+    format(): string {
+        return `${this.client} doit ${this.amount}$ pour ${this.details}`
+    }
+}
+
+let invOne = new Invoice("Peter NDENGO", "Développer un site web", 500),
+    invTwo = new Invoice("Jonas NDENGO", "Créer une maquette maison", 630),
+    invoices: Invoice[] = [];
+
+invoices.push(invOne);
+invoices.push(invTwo);
+
+console.log(invoices)
 
 let form = document.querySelector('.new-item-form')! as HTMLFormElement;
 
@@ -13,11 +35,10 @@ let type = document.querySelector("#type") as HTMLSelectElement,
 form.addEventListener("submit", (e: Event) => {
     e.preventDefault();
 
-    console.log(
-        type.value,
-        tofrom.value,
-        details.value,
-        amount.valueAsNumber
-    );
+    let invoice = new Invoice(tofrom.value, details.value, amount.valueAsNumber);
+    invoices.push(invoice);
+
+    console.log(invoices);
+    
     
 })
