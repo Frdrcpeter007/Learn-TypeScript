@@ -1,22 +1,12 @@
-let greet: Function;
+type StringOrNum = string | number;
+type userModel = {name: string, age: number, uid: StringOrNum};
 
-//greet = 'hello';
-
-greet = () => {
-    console.log("Hello world !");
-    
+const logDetails = (uid: StringOrNum, item: string): void => {
+    console.log(`${item} has ${uid}`)
 }
 
-const add = (a: number, b: number, c: number | string = 100): void => {
-    console.log(a + b);
-    console.log(c);   
+const greet = (user: userModel): void => {
+    console.log(`${user.name} have ${user.age} years`)
 }
 
-add(3, 98)
-
-const minus = (a: number, b: number): number => {
-    return a - b
-}
-
-let result = minus(30, 21)
-console.log(result);
+greet({name: "Peter", age: 34, uid: "123"})

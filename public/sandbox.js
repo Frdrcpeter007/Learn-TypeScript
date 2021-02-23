@@ -1,17 +1,8 @@
 "use strict";
-var greet;
-//greet = 'hello';
-greet = function () {
-    console.log("Hello world !");
+var logDetails = function (uid, item) {
+    console.log(item + " has " + uid);
 };
-var add = function (a, b, c) {
-    if (c === void 0) { c = 100; }
-    console.log(a + b);
-    console.log(c);
+var greet = function (user) {
+    console.log(user.name + " have " + user.age + " years");
 };
-add(3, 98);
-var minus = function (a, b) {
-    return a - b;
-};
-var result = minus(30, 21);
-console.log(result);
+greet({ name: "Peter", age: 34, uid: "123" });
