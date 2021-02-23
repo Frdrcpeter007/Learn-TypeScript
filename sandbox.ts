@@ -1,34 +1,43 @@
+//Explicit type
+let char: string;
+let age: number;
+let isLoggedIn: boolean;
+
+//age = 'luigi'
+age = 34
+
 //Array
-let names = ['luigi', 'mario']
+let ninjas: String[];
 
-names.push('yoshi');
-//names.push(3);
-//names[0] = 34;
+//ninjas = [23, 'abcd']
+ninjas = ['Ken', 'Master']
 
-let mixed = ['Peter', 20, true];
+//Union Type
+let mixed: (string|number)[] = [];
 
-mixed.push('Frdrcpeter');
-mixed.push(5)
-mixed.push(false)
-mixed[0] = 3;
+//mixed.push(true)
+mixed.push('Peter')
+mixed.push(46)
+
+let uid: number|string;
+
+//uid = false;
+uid = '123'
+
 
 //Object
-let ninja = {
-    name: 'Ken',
-    age: 34
+let ninjaOne: object;
+
+ninjaOne = {name: 'abc', age: 22}
+ninjaOne = []
+
+let ninjaTwo: {uid: number|string, name: string, age: number, isDead: boolean};
+
+ninjaTwo = {
+    uid: "123",
+    name: 'Peter',
+    age: 99,
+    isDead: false
 }
 
-//ninja.age = "23";
-ninja.age = 23;
-
-//ninja.skills = ["HTML"];
-
-//Il faut respecter la structure de départ
-// ninja = {
-//     name: 'abcd'
-// }
-
-ninja = {
-    name: 'Master',
-    age : 23
-}
+console.log(ninjaTwo);
