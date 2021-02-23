@@ -1,3 +1,20 @@
+interface isPerson {
+    name: string,
+    age: number,
+    speak(a: string): void;
+}
+
+let me: isPerson = {
+    name: 'Peter',
+    age: 39,
+    speak(text: string): void {
+        console.log(text);
+    }
+}
+
+me.speak("Ta guele");
+
+
 import { Invoice } from './classes/Invoce.js';
 
 let invOne = new Invoice("Peter NDENGO", "Développer un site web", 500),

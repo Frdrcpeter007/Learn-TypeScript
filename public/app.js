@@ -1,3 +1,11 @@
+let me = {
+    name: 'Peter',
+    age: 39,
+    speak(text) {
+        console.log(text);
+    }
+};
+me.speak("Ta guele");
 import { Invoice } from './classes/Invoce.js';
 let invOne = new Invoice("Peter NDENGO", "Développer un site web", 500), invTwo = new Invoice("Jonas NDENGO", "Créer une maquette maison", 630), invoices = [];
 invoices.push(invOne);
