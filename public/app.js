@@ -1,26 +1,14 @@
-"use strict";
-//Classes
-var Invoice = /** @class */ (function () {
-    function Invoice(client, details, amount) {
-        this.client = client;
-        this.details = details;
-        this.amount = amount;
-    }
-    Invoice.prototype.format = function () {
-        return this.client + " doit " + this.amount + "$ pour " + this.details;
-    };
-    return Invoice;
-}());
-var invOne = new Invoice("Peter NDENGO", "Développer un site web", 500), invTwo = new Invoice("Jonas NDENGO", "Créer une maquette maison", 630), invoices = [];
+import { Invoice } from './classes/Invoce.js';
+let invOne = new Invoice("Peter NDENGO", "Développer un site web", 500), invTwo = new Invoice("Jonas NDENGO", "Créer une maquette maison", 630), invoices = [];
 invoices.push(invOne);
 invoices.push(invTwo);
 console.log(invoices);
-var form = document.querySelector('.new-item-form');
+let form = document.querySelector('.new-item-form');
 //Input
-var type = document.querySelector("#type"), tofrom = document.querySelector("#tofrom"), details = document.querySelector("#details"), amount = document.querySelector("#amount");
-form.addEventListener("submit", function (e) {
+let type = document.querySelector("#type"), tofrom = document.querySelector("#tofrom"), details = document.querySelector("#details"), amount = document.querySelector("#amount");
+form.addEventListener("submit", (e) => {
     e.preventDefault();
-    var invoice = new Invoice(tofrom.value, details.value, amount.valueAsNumber);
+    let invoice = new Invoice(tofrom.value, details.value, amount.valueAsNumber);
     invoices.push(invoice);
-    console.log(invoices.map(function (value) { return value.format(); }));
+    console.log(invoices.map((value) => value.format()));
 });
