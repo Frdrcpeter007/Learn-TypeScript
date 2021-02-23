@@ -1,16 +1,13 @@
 //Classes
 class Invoice {
-    client: string;
-    details: string;
-    amount: number;
 
-    constructor(client: string, details: string, amount: number) {
-        this.client = client;
-        this.details = details;
-        this.amount = amount;
-    }
+    constructor(
+        readonly client: string,
+        private details: string,
+        private amount: number
+    ) {}
 
-    format(): string {
+    public format(): string {
         return `${this.client} doit ${this.amount}$ pour ${this.details}`
     }
 }
@@ -38,7 +35,7 @@ form.addEventListener("submit", (e: Event) => {
     let invoice = new Invoice(tofrom.value, details.value, amount.valueAsNumber);
     invoices.push(invoice);
 
-    console.log(invoices);
+    console.log(invoices.map((value) => value.format()));
     
     
 })

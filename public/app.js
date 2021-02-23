@@ -22,5 +22,5 @@ form.addEventListener("submit", function (e) {
     e.preventDefault();
     var invoice = new Invoice(tofrom.value, details.value, amount.valueAsNumber);
     invoices.push(invoice);
-    console.log(invoices);
+    console.log(invoices.map(function (value) { return value.format(); }));
 });
