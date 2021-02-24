@@ -1,30 +1,20 @@
-interface isPerson {
-    name: string,
-    age: number,
-    speak(a: string): void;
-}
-
-let me: isPerson = {
-    name: 'Peter',
-    age: 39,
-    speak(text: string): void {
-        console.log(text);
-    }
-}
-
-me.speak("Ta guele");
-
-
 import { Invoice } from './classes/Invoce.js';
+import { Payment } from './classes/Payments.js';
 
 let invOne = new Invoice("Peter NDENGO", "Développer un site web", 500),
     invTwo = new Invoice("Jonas NDENGO", "Créer une maquette maison", 630),
-    invoices: Invoice[] = [];
+    paidOne = new Payment("ABCD", "Developpement d'un site web", 340),
+    invoices: Invoice[] = [],
+    payments: Payment[] = [];
 
 invoices.push(invOne);
 invoices.push(invTwo);
 
+payments.push(paidOne);
+
 console.log(invoices)
+console.log(payments);
+
 
 let form = document.querySelector('.new-item-form')! as HTMLFormElement;
 
