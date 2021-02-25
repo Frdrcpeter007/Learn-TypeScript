@@ -1,10 +1,10 @@
 export class Payment {
-    constructor(client, details, amount) {
-        this.client = client;
+    constructor(recipient, details, amount) {
+        this.recipient = recipient;
         this.details = details;
         this.amount = amount;
     }
     format() {
-        return `${this.client} a payé ${this.amount}$ pour ${this.details}`;
+        return `${this.recipient} a payé ${this.amount}$ pour ${this.details}`;
     }
 }
