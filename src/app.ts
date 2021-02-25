@@ -17,14 +17,17 @@ form.addEventListener("submit", (e: Event) => {
     e.preventDefault();
 
     let doc: HasFormatter,
-        heading: "Facture d'achat" | "Payement";
+        heading: "Facture d'achat" | "Payement",
+        values: [string, string, number];
+
+        values = [tofrom.value, details.value, amount.valueAsNumber];
 
     if (type.value === 'invoice') {
         heading = 'Facture d\'achat';
-        doc = new Invoice(tofrom.value, details.value, amount.valueAsNumber)
+        doc = new Invoice(...values)
     } else {
         heading = 'Payement';
-        doc = new Payment(tofrom.value, details.value, amount.valueAsNumber)   
+        doc = new Payment(...values)   
     }
     
 
@@ -33,25 +36,10 @@ form.addEventListener("submit", (e: Event) => {
 })
 
 
-//Enum
-enum RessourceType {FILM, SERIE, MERDE, CON}
+//Tuples
+let tup: [string, number];
 
-interface Resource <T> {
-    uid: Number,
-    ressourceType: RessourceType,
-    data: T
-}
+tup = ["33", 33];
 
-let docOne: Resource<Object> = {
-    uid: 34,
-    ressourceType: RessourceType.FILM,
-    data: {title: "La fleur de l'âge"}
-}
+console.log(tup);
 
-let docTwo: Resource<Object> = {
-    uid: 94,
-    ressourceType: RessourceType.SERIE,
-    data: {name: "Merlin l'enchanteur"}
-}
-
-console.log(docOne);

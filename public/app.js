@@ -6,33 +6,19 @@ let form = document.querySelector('.new-item-form');
 let type = document.querySelector("#type"), tofrom = document.querySelector("#tofrom"), details = document.querySelector("#details"), amount = document.querySelector("#amount"), container = document.querySelector(".item-list"), item = new ListTemplate(container);
 form.addEventListener("submit", (e) => {
     e.preventDefault();
-    let doc, heading;
+    let doc, heading, values;
+    values = [tofrom.value, details.value, amount.valueAsNumber];
     if (type.value === 'invoice') {
         heading = 'Facture d\'achat';
-        doc = new Invoice(tofrom.value, details.value, amount.valueAsNumber);
+        doc = new Invoice(...values);
     }
     else {
         heading = 'Payement';
-        doc = new Payment(tofrom.value, details.value, amount.valueAsNumber);
+        doc = new Payment(...values);
     }
     item.render(doc, heading, 'end');
 });
-//Enum
-var RessourceType;
-(function (RessourceType) {
-    RessourceType[RessourceType["FILM"] = 0] = "FILM";
-    RessourceType[RessourceType["SERIE"] = 1] = "SERIE";
-    RessourceType[RessourceType["MERDE"] = 2] = "MERDE";
-    RessourceType[RessourceType["CON"] = 3] = "CON";
-})(RessourceType || (RessourceType = {}));
-let docOne = {
-    uid: 34,
-    ressourceType: RessourceType.FILM,
-    data: { title: "La fleur de l'âge" }
-};
-let docTwo = {
-    uid: 94,
-    ressourceType: RessourceType.SERIE,
-    data: { name: "Merlin l'enchanteur" }
-};
-console.log(docOne);
+//Tuples
+let tup;
+tup = ["33", 33];
+console.log(tup);
