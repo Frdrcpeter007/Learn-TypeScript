@@ -31,3 +31,31 @@ form.addEventListener("submit", (e: Event) => {
     item.render(doc, heading, 'end')
 
 })
+
+
+//Generics
+const addUID = <T extends {name: String}>(obj: T) => {
+    let uid = Math.floor(Math.random() * 100);
+
+    return {...obj, uid}
+}
+let doc = addUID({name: 'Peter', age: 34});
+
+console.log(doc);
+console.log(doc.name);
+
+//With Interface
+
+interface Resource <T> {
+    uid: Number,
+    ressourceName: String,
+    data: T
+}
+
+let docThree: Resource<HasFormatter> = {
+    uid: 34,
+    ressourceName: "Me",
+    data: new Invoice("ABC", "Hmmmmm", 450)
+}
+
+console.log(docThree.data.format());

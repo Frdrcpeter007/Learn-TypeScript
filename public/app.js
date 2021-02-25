@@ -17,3 +17,17 @@ form.addEventListener("submit", (e) => {
     }
     item.render(doc, heading, 'end');
 });
+//Generics
+const addUID = (obj) => {
+    let uid = Math.floor(Math.random() * 100);
+    return Object.assign(Object.assign({}, obj), { uid });
+};
+let doc = addUID({ name: 'Peter', age: 34 });
+console.log(doc);
+console.log(doc.name);
+let docThree = {
+    uid: 34,
+    ressourceName: "Me",
+    data: new Invoice("ABC", "Hmmmmm", 450)
+};
+console.log(docThree.data.format());
