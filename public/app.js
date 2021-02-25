@@ -17,17 +17,22 @@ form.addEventListener("submit", (e) => {
     }
     item.render(doc, heading, 'end');
 });
-//Generics
-const addUID = (obj) => {
-    let uid = Math.floor(Math.random() * 100);
-    return Object.assign(Object.assign({}, obj), { uid });
-};
-let doc = addUID({ name: 'Peter', age: 34 });
-console.log(doc);
-console.log(doc.name);
-let docThree = {
+//Enum
+var RessourceType;
+(function (RessourceType) {
+    RessourceType[RessourceType["FILM"] = 0] = "FILM";
+    RessourceType[RessourceType["SERIE"] = 1] = "SERIE";
+    RessourceType[RessourceType["MERDE"] = 2] = "MERDE";
+    RessourceType[RessourceType["CON"] = 3] = "CON";
+})(RessourceType || (RessourceType = {}));
+let docOne = {
     uid: 34,
-    ressourceName: "Me",
-    data: new Invoice("ABC", "Hmmmmm", 450)
+    ressourceType: RessourceType.FILM,
+    data: { title: "La fleur de l'âge" }
 };
-console.log(docThree.data.format());
+let docTwo = {
+    uid: 94,
+    ressourceType: RessourceType.SERIE,
+    data: { name: "Merlin l'enchanteur" }
+};
+console.log(docOne);

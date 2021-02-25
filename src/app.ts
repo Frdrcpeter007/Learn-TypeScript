@@ -33,29 +33,25 @@ form.addEventListener("submit", (e: Event) => {
 })
 
 
-//Generics
-const addUID = <T extends {name: String}>(obj: T) => {
-    let uid = Math.floor(Math.random() * 100);
-
-    return {...obj, uid}
-}
-let doc = addUID({name: 'Peter', age: 34});
-
-console.log(doc);
-console.log(doc.name);
-
-//With Interface
+//Enum
+enum RessourceType {FILM, SERIE, MERDE, CON}
 
 interface Resource <T> {
     uid: Number,
-    ressourceName: String,
+    ressourceType: RessourceType,
     data: T
 }
 
-let docThree: Resource<HasFormatter> = {
+let docOne: Resource<Object> = {
     uid: 34,
-    ressourceName: "Me",
-    data: new Invoice("ABC", "Hmmmmm", 450)
+    ressourceType: RessourceType.FILM,
+    data: {title: "La fleur de l'âge"}
 }
 
-console.log(docThree.data.format());
+let docTwo: Resource<Object> = {
+    uid: 94,
+    ressourceType: RessourceType.SERIE,
+    data: {name: "Merlin l'enchanteur"}
+}
+
+console.log(docOne);
